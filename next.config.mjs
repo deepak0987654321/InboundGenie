@@ -4,11 +4,6 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  images: {
-    loader: 'akamai',
-    path: '',
-  },
-  assetPrefix: './',
 
 };
 
