@@ -70,6 +70,10 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        'auth-pattern': "url('/images/signup_bg.png')",
+        'logo': "url('/logo.svg')",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

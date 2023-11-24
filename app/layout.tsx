@@ -1,12 +1,14 @@
-import "@/styles/globals.css"
+import "@/src/dist/output.css"
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import Sidebar from "@/components/ui/sidebar"
+import Navbar from "@/components/ui/navbar"
+
 
 export const metadata: Metadata = {
   title: {
@@ -27,9 +29,14 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode
+  showNavbar?: boolean;
+  showSideBar?: boolean;
+
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+
+export default function RootLayout({ children, showNavbar, showSideBar}: RootLayoutProps) {
+
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -40,10 +47,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+            <div className="relative flex flex-col">
+             
+            <main>
+            
+             { showSideBar && <Sidebar />}
+             {showNavbar && <Navbar />}
               <div className="flex-1">{children}</div>
+</main>
+            
             </div>
             <TailwindIndicator />
           </ThemeProvider>

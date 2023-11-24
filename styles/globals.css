@@ -2,28 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 0 0% 92%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 0 0% 53%;
+    --input: 	0 0% 100%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 47.4% 11.2%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 228, 45%, 22%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 175 69% 39%;
+    --secondary-foreground: 0 0% 100%;
 
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
@@ -78,4 +79,90 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  h3 {
+    @apply text-2xl font-bold;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  p, span, label, ul, li, a {
+    @apply text-base;
+  }
+a {
+  @apply text-secondary underline font-medium;
 }
+
+}
+
+@layer components {
+  .groups {
+    @apply flex flex-col gap-3;
+  }
+
+  .divider-text {
+    @apply  -mt-[26px] bg-background px-4;
+  }
+}
+
+.hide-svg svg {
+  @apply hidden;
+}
+.dropdown {
+  @apply flex items-center;
+}
+
+.main-container {
+  @apply ml-[308px] py-10 px-16;
+}
+
+
+.input-style {
+  @apply flex min-h-[50px] bg-input w-full rounded-md border !border-border  p-[15px] text-base placeholder:!text-primary focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900;
+}
+
+.label-style {
+  @apply text-base font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+.select-style {
+  @apply flex h-[56px] min-h-[56px] w-full items-center justify-between rounded-md border !border-border bg-transparent py-2 px-3 !text-base placeholder:!text-primary focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900;
+}
+
+.button-default {
+  @apply min-h-[50px] py-2 px-4;
+}
+
+
+.edit-group {
+  @apply flex flex-col md:flex-row gap-6 md:gap-10;
+}
+.edit-group label {
+  @apply mt-5;
+}
+
+.visa-card {
+  @apply  p-5 border rounded flex flex-col gap-5;
+  }
+
+.card-header{
+  @apply flex justify-between items-center;
+}
+.card-body {
+  @apply flex flex-col gap-4;
+}
+
+.sidebar-item {
+  @apply flex items-center p-4 text-white rounded-md no-underline;
+}
+.sidebar-item.active {
+  @apply bg-secondary;
+}
+

@@ -1,39 +1,29 @@
-import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import Layout from "./layout"
 
 export default function IndexPage() {
+
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          Beautifully designed components <br className="hidden sm:inline" />
-          built with Radix UI and Tailwind CSS.
-        </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
+    <Layout showNavbar={true} showSideBar={true}>
+    <section className=" main-container relative flex  justify-center items-center flex-col">
+       <div className="grid gap-6 text-center max-w-lg mx-auto py-20">
+      <div className="text-center mx-auto">
+        <img src="../empty-icon.svg" alt="" />
+      </div>
+      <div className="grid gap-3">
+        <h3>Lorem Ipsum is simply dummy text</h3>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500
         </p>
       </div>
-      <div className="flex gap-4">
-        <Link
-          href={siteConfig.links.docs}
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants()}
-        >
-          Documentation
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline" })}
-        >
-          GitHub
-        </Link>
+      <div className="block">
+        <Button typeof="submit" className="bg-primary button-default">Create keyword alerts</Button>
       </div>
+    </div>
     </section>
+    </Layout>
   )
 }
