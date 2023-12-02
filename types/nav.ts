@@ -1,6 +1,6 @@
 export interface NavItem {
-  isDivider?: any
-  title: string
+  isDivider?: boolean
+  title?: string
   href?: string
   disabled?: boolean
   external?: boolean

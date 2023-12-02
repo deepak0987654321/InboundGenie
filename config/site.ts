@@ -34,7 +34,6 @@ export const siteConfig = {
       }),
     },
     {
-      // Horizontal line (hr)
       isDivider: true,
     },
     {
@@ -54,7 +53,6 @@ export const siteConfig = {
       }),
     },
     {
-      // Horizontal line (hr)
       isDivider: true,
     },
     {
