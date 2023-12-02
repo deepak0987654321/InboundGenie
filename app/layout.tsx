@@ -2,13 +2,11 @@ import "@/src/dist/output.css"
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
-import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import Navbar from "@/components/ui/navbar"
+import Sidebar from "@/components/ui/sidebar"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import Sidebar from "@/components/ui/sidebar"
-import Navbar from "@/components/ui/navbar"
-
 
 export const metadata: Metadata = {
   title: {
@@ -29,34 +27,32 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode
-  showNavbar?: boolean;
-  showSideBar?: boolean;
-
+  showNavbar?: boolean
+  showSideBar?: boolean
 }
 
-
-export default function RootLayout({ children, showNavbar, showSideBar}: RootLayoutProps) {
-
+export default function RootLayout({
+  children,
+  showNavbar,
+  showSideBar,
+}: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
+            "min-h-screen bg-background font-body font-medium text-foreground antialiased"
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             <div className="relative flex flex-col">
-             
-            <main>
-            
-             { showSideBar && <Sidebar />}
-             {showNavbar && <Navbar />}
-              <div className="flex-1">{children}</div>
-</main>
-            
+              {showSideBar && <Sidebar items={siteConfig.mainNav} />}
+
+              <main>
+                {showNavbar && <Navbar />}
+                <div className="flex-1">{children}</div>
+              </main>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

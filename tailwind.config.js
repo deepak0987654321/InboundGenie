@@ -54,7 +54,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        body: ['Satoshi-Regular', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
@@ -73,8 +73,13 @@ module.exports = {
       backgroundImage: {
         'auth-pattern': "url('/images/signup_bg.png')",
         'logo': "url('/logo.svg')",
-      }
+      },
+      boxShadow: {
+        'center': '0px 0px 10px 2px rgba(0,0,0,0.15);',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
+
+

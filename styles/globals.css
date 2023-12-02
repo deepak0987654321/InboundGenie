@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -15,7 +14,7 @@
     --popover-foreground: 222.2 47.4% 11.2%;
 
     --border: 0 0% 53%;
-    --input: 	0 0% 100%;
+    --input: 0 0% 100%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 47.4% 11.2%;
@@ -72,6 +71,56 @@
 }
 
 @layer base {
+  @font-face {
+    font-family: "Satoshi-Light";
+    src: url("../../fonts/Satoshi-Light.woff2") format("woff2"),
+      url("../../fonts/Satoshi-Light.woff") format("woff"),
+      url("../../fonts/Satoshi-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Satoshi-Regular";
+    src: url("../../fonts/Satoshi-Regular.woff2") format("woff2"),
+      url("../../fonts/Satoshi-Regular.woff") format("woff"),
+      url("../../fonts/Satoshi-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Satoshi-Medium";
+    src: url("../../fonts/Satoshi-Medium.woff2") format("woff2"),
+      url("../../fonts/Satoshi-Medium.woff") format("woff"),
+      url("../../fonts/Satoshi-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Satoshi-Bold";
+    src: url("../../fonts/Satoshi-Bold.woff2") format("woff2"),
+      url("../../fonts/Satoshi-Bold.woff") format("woff"),
+      url("../../fonts/Satoshi-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Satoshi-Black";
+    src: url("../../fonts/Satoshi-Black.woff2") format("woff2"),
+      url("../../fonts/Satoshi-Black.woff") format("woff"),
+      url("../../fonts/Satoshi-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal;
+  }
+
   * {
     @apply border-border;
   }
@@ -83,7 +132,7 @@
     @apply text-4xl font-bold;
   }
   h2 {
-    @apply text-3xl font-bold;
+    @apply text-2xl font-bold;
   }
   h3 {
     @apply text-2xl font-bold;
@@ -94,13 +143,20 @@
   h5 {
     @apply text-lg;
   }
-  p, span, label, ul, li, a {
+  p,
+  span,
+  label,
+  ul,
+  li,
+  a {
     @apply text-base;
   }
-a {
-  @apply text-secondary underline font-medium;
-}
-
+  a {
+    @apply text-secondary underline font-medium;
+  }
+  button {
+    @apply !font-semibold;
+  }
 }
 
 @layer components {
@@ -109,7 +165,7 @@ a {
   }
 
   .divider-text {
-    @apply  -mt-[26px] bg-background px-4;
+    @apply -mt-[26px] bg-background px-4;
   }
 }
 
@@ -124,22 +180,23 @@ a {
   @apply ml-[308px] py-10 px-16;
 }
 
-
 .input-style {
-  @apply flex min-h-[50px] bg-input w-full rounded-md border !border-border  p-[15px] text-base placeholder:!text-primary focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900;
+  @apply flex min-h-[46px] bg-input w-full rounded-md border !border-border  px-[15px] py-2 text-base placeholder:!text-primary focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900;
 }
 
 .label-style {
   @apply text-base font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
 }
 .select-style {
-  @apply flex h-[56px] min-h-[56px] w-full items-center justify-between rounded-md border !border-border bg-transparent py-2 px-3 !text-base placeholder:!text-primary focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900;
+  @apply flex h-[46px] min-h-[46px] w-full items-center justify-between rounded-md border !border-border bg-transparent py-2 px-3 !text-base placeholder:!text-primary focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900;
+}
+.select-drop-style {
+  @apply relative z-50 min-w-[8rem] overflow-hidden rounded-md border border-slate-100 bg-white text-slate-700 shadow-md animate-in fade-in-80 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-400;
 }
 
 .button-default {
-  @apply min-h-[50px] py-2 px-4;
+  @apply min-h-[46px] py-1 px-4;
 }
-
 
 .edit-group {
   @apply flex flex-col md:flex-row gap-6 md:gap-10;
@@ -149,10 +206,10 @@ a {
 }
 
 .visa-card {
-  @apply  p-5 border rounded flex flex-col gap-5;
-  }
+  @apply p-5 border rounded flex flex-col gap-5;
+}
 
-.card-header{
+.card-header {
   @apply flex justify-between items-center;
 }
 .card-body {
@@ -160,9 +217,12 @@ a {
 }
 
 .sidebar-item {
-  @apply flex items-center p-4 text-white rounded-md no-underline;
+  @apply flex gap-4 hover:bg-secondary items-center px-4 my-1 py-3 text-white rounded-md no-underline;
 }
 .sidebar-item.active {
   @apply bg-secondary;
 }
 
+button[data-state="checked"] {
+  @apply bg-secondary border border-secondary;
+}

@@ -1,25 +1,23 @@
 import * as React from "react"
-import Card from './card';
-import InfoCard from './infoCard';
-import Layout from "../layout"
 
+import Layout from "../layout"
+import Card from "./card"
+import InfoCard from "./infoCard"
 
 export default function IndexPage() {
   return (
-<Layout showNavbar={true} showSideBar={true}>
-    <section className=" main-container grid items-center gap-6 pb-8 pt-6 md:py-10">
- <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-      <Card />
-      <Card />
-
-    </div>
-    <div className="grid gap-6 mt-10">
-      <InfoCard/>
-      <InfoCard/>
-      <InfoCard/>
-
-      </div>
-    </section>
-</Layout>
+    <Layout showNavbar={true} showSideBar={true}>
+      <section className=" main-container grid items-center gap-10 pb-8 md:pb-10">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          <Card title={"Sources"} onAddText={"Add sources"} />
+          <Card title={"Keywords"} onAddText={"Add keywords"} />
+        </div>
+        <div className="grid gap-6">
+          <InfoCard />
+          <InfoCard />
+          <InfoCard />
+        </div>
+      </section>
+    </Layout>
   )
 }
