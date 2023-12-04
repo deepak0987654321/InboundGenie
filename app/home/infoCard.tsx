@@ -31,7 +31,7 @@ const InfoCard: React.FC = () => {
               </p>
             </div>
             <div className="mt-3 flex flex-wrap gap-5 items-center">
-              <Button typeof="button" size="sm" className="   bg-secondary ">
+              <Button typeof="button" size="sm" className=" h-7  bg-secondary ">
                 Reply
               </Button>
 

@@ -15,13 +15,13 @@ const Card: React.FC<CardProps> = ({ title, onAddText, onAddButton }) => {
       <div className="flex items-center justify-between pb-7">
         <div className="text-lg font-semibold">{title}</div>
         <div className="flex gap-4">
-          <Button
+          {/* <Button
             variant="link"
             className="h-2 px-0 text-secondary"
             onClick={onAddButton} // Attach the onClick event to the Button
           >
             {onAddText}
-          </Button>
+          </Button> */}
           <Button variant="link" className="h-2 px-0 text-secondary">
             Edit
           </Button>
